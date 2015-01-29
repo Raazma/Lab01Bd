@@ -177,7 +177,18 @@ on stages.numstage = postuler.numstage
 where stages.description = 'application android pour clavardage';
 
 --15
+select count(nument) as nombrestages,nument
+from stages
+group by nument;
 
+--16
+select count(postuler.numstage) as nombredepostulant, stages.description
+from postuler
+inner join stages 
+on stages.numstage = postuler.numstage
+group by postuler.numstage,stages.description;
+
+--17
 
 
 
