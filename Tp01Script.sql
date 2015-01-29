@@ -140,3 +140,17 @@ WHERE  AdresseEnt  like '%Montreal%'
 ORDER BY NOMENT;
 
 --10
+select * 
+from stages
+inner join entreprises
+on entreprises.nument = stages.nument
+where noment = 'zensol automation';
+
+--11
+select numstage,description,entreprises.noment
+from stages
+inner join entreprises
+on entreprises.nument = stages.nument
+
+--12
+lol
