@@ -75,7 +75,7 @@ INSERT INTO POSTULER VALUES(14,101,2);
 INSERT INTO POSTULER VALUES(14,102,4);
 INSERT INTO POSTULER VALUES(20,101,2);
 INSERT INTO POSTULER VALUES(20,100,1);
-
+commit;
 --------------------------------------------------------------------------------------------------------------------
 
 --3
@@ -150,7 +150,34 @@ where noment = 'zensol automation';
 select numstage,description,entreprises.noment
 from stages
 inner join entreprises
-on entreprises.nument = stages.nument
+on entreprises.nument = stages.nument;
 
 --12
-lol
+select numstage,description,entreprises.noment
+from stages
+right join entreprises
+on entreprises.nument = stages.nument;
+
+--13
+select etudiants.nom,etudiants.prenom,stages.description , priorite
+from postuler
+inner join stages 
+on stages.numstage = postuler.numstage
+inner join etudiants
+on postuler.numad = etudiants.numad
+order by priorite;
+
+--14
+select nom,prenom
+from etudiants
+inner join postuler
+on postuler.numad = etudiants.numad
+inner join stages
+on stages.numstage = postuler.numstage
+where stages.description = 'application android pour clavardage';
+
+--15
+
+
+
+
