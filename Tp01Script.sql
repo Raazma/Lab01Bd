@@ -191,4 +191,3 @@ group by postuler.numstage,stages.description;
 --17
 
 
-
