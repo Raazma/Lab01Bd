@@ -13,7 +13,7 @@ namespace Tp01Bd
 {
     public partial class Form1 : Form
     {
-        public OracleConnection oraconn = new OracleConnection();
+       public OracleConnection oraconn = new OracleConnection();
         DataSet lesINFoCoalis = new DataSet();
         public Form1()
         {
@@ -60,8 +60,8 @@ namespace Tp01Bd
 
         public void FilledInfo()
         {
-            ClearBinding();
-            string Sql = "select * from stages where nument in (select nument from entreprises where noment = '" + Lb_Ent.SelectedItem.ToString() +"')";
+             ClearBinding();
+             string Sql = "select * from stages where nument in (select nument from entreprises where noment = '" + Lb_Ent.SelectedItem.ToString() +"')";
              OracleDataAdapter orDataAdaptr = new OracleDataAdapter(Sql, oraconn);
              orDataAdaptr.Fill(lesINFoCoalis, "resEnt");
 
