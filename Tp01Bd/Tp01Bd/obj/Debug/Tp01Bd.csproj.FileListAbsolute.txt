@@ -1,0 +1,11 @@
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe.config
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csprojResolveAssemblyReference.cache
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Form1.resources
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Properties.Resources.resources
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csproj.GenerateResource.Cache
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.pdb
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.exe
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.pdb
+C:\Users\Razma\Documents\C#\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Ajout_Form.resources
