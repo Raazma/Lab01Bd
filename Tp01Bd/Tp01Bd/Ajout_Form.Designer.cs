@@ -43,6 +43,7 @@
             // Tb_Description
             // 
             this.Tb_Description.Location = new System.Drawing.Point(93, 48);
+            this.Tb_Description.MaxLength = 100;
             this.Tb_Description.Multiline = true;
             this.Tb_Description.Name = "Tb_Description";
             this.Tb_Description.Size = new System.Drawing.Size(150, 59);

@@ -56,25 +56,30 @@ namespace Tp01Bd
 
         private void Btn_Ajouter_Click(object sender, EventArgs e)
         {
-             string sql = "INSERT INTO stages (numstage , description ,typestg , numEnt)" +
-                                 "values (:Lenum,:Desc,:letype, ( select nument from entreprises where noment  = :lenument )";
-            OracleCommand oraclecomm = new OracleCommand(sql, oracon);
-            OracleParameter num = new OracleParameter(":Lenum", OracleDbType.Int32);
-            OracleParameter Descrip = new OracleParameter(":Desc", OracleDbType.Varchar2, 100);
-            OracleParameter thetype = new OracleParameter(":letype", OracleDbType.Char, 3);
-            OracleParameter numentreprise = new OracleParameter(":lenument", OracleDbType.Char, 6);
-            num.Value = Tb_Num.Text;
-            Descrip.Value = Tb_Description.Text;
-            thetype.Value = Cb_Type.SelectedItem.ToString();
-            numentreprise.Value = Cb_Ent.SelectedItem.ToString();
-            oraclecomm.Parameters.Add(num);
-            oraclecomm.Parameters.Add(Descrip);
-            oraclecomm.Parameters.Add(thetype);
-            oraclecomm.Parameters.Add( numentreprise);
+            if (oracon.State == ConnectionState.Open)
+            {
+                string sql = "INSERT INTO stages (numstage , DESCRIPTION , typestg , numEnt)" +
+                                    "values (:Lenum, :Descri, :letype,( select nument from entreprises where noment  = :lenument ) )";//,'ges','Xper'
+                OracleCommand oraclecomm = new OracleCommand(sql, oracon);
+                OracleParameter num = new OracleParameter(":Lenum", OracleDbType.Int32);
+                OracleParameter Descrip = new OracleParameter(":Descri", OracleDbType.Varchar2, 100);
+                OracleParameter thetype = new OracleParameter(":letype", OracleDbType.Char, 3);
+                OracleParameter numentreprise = new OracleParameter(":lenument", OracleDbType.Varchar2, 40);
+                num.Value = Tb_Num.Text;
+                Descrip.Value = Tb_Description.Text;
+                thetype.Value = Cb_Type.SelectedItem.ToString();
+                numentreprise.Value = Cb_Ent.SelectedItem.ToString();
+                oraclecomm.Parameters.Add(num);
+                oraclecomm.Parameters.Add(Descrip);
+                oraclecomm.Parameters.Add(thetype);
+                oraclecomm.Parameters.Add(numentreprise);
 
-          int i = oraclecomm.ExecuteNonQuery();
-
-           MessageBox.Show(i.ToString() + " Ligne Inserer");
+                int i = oraclecomm.ExecuteNonQuery();
+                MessageBox.Show(i.ToString() + " Ligne Inserer");
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+          
         }
 
     
