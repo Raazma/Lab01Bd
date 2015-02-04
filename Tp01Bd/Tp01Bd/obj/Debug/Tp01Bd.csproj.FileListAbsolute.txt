@@ -23,3 +23,13 @@ C:\Users\201037629\Desktop\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csprojResolveA
 C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe.config
 C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.exe
 C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.pdb
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe.config
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.exe
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.pdb
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.pdb
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Oracle.DataAccess.dll
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Ajout_Form.resources
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Form1.resources
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Properties.Resources.resources
+\\clg.priv\Ens\El\1\201250541\Mes documents\bd\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csproj.GenerateResource.Cache
