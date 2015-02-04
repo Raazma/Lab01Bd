@@ -189,12 +189,43 @@ on stages.numstage = postuler.numstage
 group by postuler.numstage,stages.description;
 
 --17
-
-<<<<<<< HEAD
-=======
 select count(numad) 
 from POSTULER p  
 inner join STAGES s on p.NUMSTAGE = s.NUMSTAGE
-where s.DESCRIPTION = "application Android Clavardage";
->>>>>>> origin/master
+where s.DESCRIPTION = 'application android pour clavardage';
+
+--18
+
+select nom, prenom from ETUDIANTS 
+where NUMAD in (
+select e.NUMAD from ETUDIANTS e
+minus 
+select p.NUMAD from postuler p 
+)
+;
+
+---19
+select nom, prenom 
+from ETUDIANTS E
+INNER JOIN POSTULER P ON E.NUMAD = P.NUMAD
+where e.NOM != 'VALENTE' AND P.NUMSTAGE in 
+(
+select NUMSTAGE 
+from POSTULER p
+inner join ETUDIANTS e on e.NUMAD = p.NUMAD
+where e.NOM = 'VALENTE'
+)
+GROUP BY E.NOM, E.PRENOM
+;
+
+--20
+DROP TABLE ETUDIANTS CASCADE CONSTRAINT;
+
+--21
+SELECT COUNT(p.NUMSTAGE) AS NonbreDeStageDeOlivierValente
+from postuler p
+inner join ETUDIANTS e on e.NUMAD=p.NUMAD
+where e.NOM = 'VALENTE' AND e.PRENOM = 'OLIVIER'
+;
+
 
