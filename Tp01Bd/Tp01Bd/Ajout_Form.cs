@@ -18,6 +18,21 @@ namespace Tp01Bd
         {
             InitializeComponent();
             oracon = oraconn;
+            FillUsedStageNumber();
+        }
+        
+        System.Collections.Specialized.StringCollection existingNumber = new System.Collections.Specialized.StringCollection();
+        private void FillUsedStageNumber()
+        {
+            string sql = "select numstage from stages";
+            OracleCommand oraclecomm = new OracleCommand(sql, oracon);
+
+            
+           OracleDataReader oraread = oraclecomm.ExecuteReader();
+           while (oraread.Read())
+           {
+               existingNumber.Add(oraread.GetInt32(0).ToString());
+           }
         }
 
         private void Ajout_Form_Load(object sender, EventArgs e)
@@ -80,6 +95,49 @@ namespace Tp01Bd
             this.DialogResult = DialogResult.OK;
             this.Close();
           
+        }
+
+        private void Tb_Num_TextChanged(object sender, EventArgs e)
+        {
+            Btn_Ajouter.Enabled = Validation();
+        }
+
+        private bool Validation()
+        {
+
+            bool valide=false;
+            // Vérification pour le champs Num Stage
+                       
+            if (!Tb_Num.Text.All<char>(car => char.IsDigit(car)) || existingNumber.Contains(Tb_Num.Text))
+            {
+                Tb_Num.BackColor=Color.Red;
+                valide |= !false;
+            }
+            else
+            {
+                Tb_Num.BackColor = Color.White;
+                valide |= !true;
+            }
+
+            // Vérification pour le champs Description
+            if(String.IsNullOrEmpty(Tb_Description.Text))
+            {
+                Tb_Description.BackColor=Color.Red;
+                valide |= !false;
+            }
+             else
+            {
+                Tb_Description.BackColor = Color.White;
+                valide |= !true;
+            }
+
+            return !valide;
+
+        }
+
+        private void Tb_Description_TextChanged(object sender, EventArgs e)
+        {
+            Btn_Ajouter.Enabled = Validation();
         }
 
     

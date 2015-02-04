@@ -43,4 +43,3 @@ C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Form1.resources
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Properties.Resources.resources
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csproj.GenerateResource.Cache
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.pdb
-C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csprojResolveAssemblyReference.cache
