@@ -68,6 +68,12 @@ namespace Tp01Bd
             Lab_Num.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.numstage");
             Tb_Description.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.Description");
             Lab_Type.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.typestg");
+
+            //enable ou disable le bouton modifier
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Count < 1)
+                Btn_Modifier.Enabled = false;
+            else
+                Btn_Modifier.Enabled = true;
         
         }
 
@@ -134,6 +140,11 @@ namespace Tp01Bd
         {
             Ajout_Form form = new Ajout_Form(oraconn);
             form.ShowDialog();
+        }
+
+        private void Tb_Description_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
