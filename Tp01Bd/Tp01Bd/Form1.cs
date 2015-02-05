@@ -39,7 +39,7 @@ namespace Tp01Bd
 
             catch (OracleException ex)
             {
-                MessageBox.Show("La conection a echouer");
+                MessageBox.Show("La conection a échouer");
             }
         }
 
