@@ -92,6 +92,10 @@ namespace Tp01Bd
                 int i = oraclecomm.ExecuteNonQuery();
                 MessageBox.Show(i.ToString() + " Ligne Inserer");
             }
+            else
+            {
+                MessageBox.Show("Connection intérompue à la Base de donnée l'intertion n'a pas pus être faite");
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
           

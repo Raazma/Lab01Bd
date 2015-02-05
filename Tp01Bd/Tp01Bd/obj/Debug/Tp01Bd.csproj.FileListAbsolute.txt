@@ -43,3 +43,11 @@ C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Form1.resources
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Properties.Resources.resources
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csproj.GenerateResource.Cache
 C:\Users\201250541\Desktop\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.pdb
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.exe
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Tp01Bd.pdb
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csprojResolveAssemblyReference.cache
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Ajout_Form.resources
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Form1.resources
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.Properties.Resources.resources
+C:\Users\Francis\Documents\Gestion BD\Lab01Bd\Tp01Bd\Tp01Bd\obj\Debug\Tp01Bd.csproj.GenerateResource.Cache

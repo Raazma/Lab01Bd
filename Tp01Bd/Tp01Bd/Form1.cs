@@ -45,6 +45,8 @@ namespace Tp01Bd
 
         public void FilledListBox()
         {
+             if (oraconn.State == ConnectionState.Open)
+            {
             string Sql = "Select  NomEnt from entreprises";
             OracleCommand ObjSelct = new OracleCommand(Sql, oraconn);
             OracleDataReader ObjeRead = ObjSelct.ExecuteReader();
@@ -56,11 +58,18 @@ namespace Tp01Bd
 
            if(Lb_Ent.Items.Count > 0) 
            Lb_Ent.SelectedIndex = 1;//le premier il affiche rien c'est plus beau
+             }
+                 else
+            {
+                MessageBox.Show("Connection intérompue à la Base de donnée");
+            }
         }
 
         public void FilledInfo()
         {
              ClearBinding();
+             if (oraconn.State == ConnectionState.Open)
+            {
              string Sql = "select * from stages where nument in (select nument from entreprises where noment = '" + Lb_Ent.SelectedItem.ToString() +"')";
              OracleDataAdapter orDataAdaptr = new OracleDataAdapter(Sql, oraconn);
              orDataAdaptr.Fill(lesINFoCoalis, "resEnt");
@@ -68,12 +77,23 @@ namespace Tp01Bd
             Lab_Num.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.numstage");
             Tb_Description.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.Description");
             Lab_Type.DataBindings.Add("TEXT", lesINFoCoalis, "resEnt.typestg");
-
+                  }
+                 else
+            {
+                MessageBox.Show("Connection intérompue à la Base de donnée");
+            }
             //enable ou disable le bouton modifier
+            Btn_Modifier.Enabled = verifymodif();
+            Btn_Suivant.Enabled=true;
+            Btn_precedent.Enabled=false;
             if (this.BindingContext[lesINFoCoalis, "resEnt"].Count < 1)
-                Btn_Modifier.Enabled = false;
+            {
+                Btn_Suprimer.Enabled = false;
+                Btn_Suivant.Enabled = false;
+            }
             else
-                Btn_Modifier.Enabled = true;
+                Btn_Suprimer.Enabled = true;
+            
         
         }
 
@@ -90,23 +110,46 @@ namespace Tp01Bd
         }
 
         private void Btn_Suivant_Click(object sender, EventArgs e)
-        {           
-          this.BindingContext[  lesINFoCoalis, "resEnt"].Position += 1;
+        {
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Count > this.BindingContext[lesINFoCoalis, "resEnt"].Position)
+            {
+                this.BindingContext[  lesINFoCoalis, "resEnt"].Position += 1;
+                Btn_precedent.Enabled = true;
+            }
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Count-1 <= this.BindingContext[lesINFoCoalis, "resEnt"].Position)
+            {
+                Btn_Suivant.Enabled = false;
+            }
         }
 
         private void Btn_precedent_Click(object sender, EventArgs e)
         {
-            this.BindingContext[lesINFoCoalis, "resEnt"].Position -= 1;
+            
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Position>=0)
+            {
+                this.BindingContext[lesINFoCoalis, "resEnt"].Position -= 1;
+                Btn_Suivant.Enabled = true;
+            }
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Position <=0)
+            {
+                Btn_precedent.Enabled = false;
+            }
         }
 
         private void Btn_Modifier_Click(object sender, EventArgs e)
         {
+             if (oraconn.State == ConnectionState.Open)
+            {
             string sql = "Update stages set Description = '" + Tb_Description.Text + "' where numstage = '" + Lab_Num.Text + "'" ;
             OracleCommand oraclecomm = new OracleCommand(sql, oraconn);
             oraclecomm.CommandType = CommandType.Text;
             int nombreligne = oraclecomm.ExecuteNonQuery();
-
-            MessageBox.Show(nombreligne.ToString() + " Ligne Modifier");
+             }
+                 else
+            {
+                MessageBox.Show("Connection intérompue à la Base de donnée");
+            }
+            //MessageBox.Show(nombreligne.ToString() + " Ligne Modifier");
         }
 
         private void Btn_Suprimer_Click(object sender, EventArgs e)
@@ -117,22 +160,36 @@ namespace Tp01Bd
 
         public void DeleteFromStage()
         {
+             if (oraconn.State == ConnectionState.Open)
+            {
             string sql = "delete from stages where numstage = " + Lab_Num.Text;
             OracleCommand oraclecomm = new OracleCommand(sql, oraconn);
             oraclecomm.CommandType = CommandType.Text;
             int nombreligne = oraclecomm.ExecuteNonQuery();
-
-            MessageBox.Show(nombreligne.ToString() + " Ligne Suprimmer");
+            
+            //MessageBox.Show(nombreligne.ToString() + " Ligne Suprimmer");
+            FilledInfo();
+                  }
+                 else
+            {
+                MessageBox.Show("Connection intérompue à la Base de donnée");
+            }
         
         }
         public void DeleteFromPostuler()
         {
+             if (oraconn.State == ConnectionState.Open)
+            {
             string sql = "delete from postuler where numstage = " + Lab_Num.Text;
             OracleCommand oraclecomm = new OracleCommand(sql, oraconn);
             oraclecomm.CommandType = CommandType.Text;
             int nombreligne = oraclecomm.ExecuteNonQuery();
-
-            MessageBox.Show(nombreligne.ToString() + " Ligne Suprimmer");
+            }
+             else
+             {
+                 MessageBox.Show("Connection intérompue à la Base de donnée");
+             }
+            //MessageBox.Show(nombreligne.ToString() + " Ligne Suprimmer");
 
         }
 
@@ -140,11 +197,35 @@ namespace Tp01Bd
         {
             Ajout_Form form = new Ajout_Form(oraconn);
             form.ShowDialog();
+            FilledInfo();
+            
         }
 
         private void Tb_Description_TextChanged(object sender, EventArgs e)
         {
+            Btn_Modifier.Enabled = verifymodif();
+        }
 
+        private bool verifymodif()
+        {
+            bool valide = false;
+            if(String.IsNullOrEmpty(Tb_Description.Text))
+            {
+                Tb_Description.BackColor=Color.Red;
+                valide |= !false;
+            }
+             else
+            {
+                Tb_Description.BackColor = Color.White;
+                valide |= !true;
+            }
+
+            if (this.BindingContext[lesINFoCoalis, "resEnt"].Count < 1)
+                valide |= !false;
+            else
+                valide |= !true;
+
+            return !valide;
         }
 
     }
